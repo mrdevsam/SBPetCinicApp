@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}, 'owners')}">
+	<head>
+		<title>PetClinic - List of Owners</title>
+	</head>
+	<body>
+		<h1 th:text="'Owner Index Page'">Heading One</h1>
+		<br/>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+				<th style="width: 140px;">Id</th>
+				<th style="width: 140px;">FirstName</th>
+				<th style="width: 140px;">LastName</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="owner:${owners}">
+					<td th:text="${owner.id}">1</td>
+					<td th:text="${owner.firstName}">g</td>
+					<td th:text="${owner.lastName}">j</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

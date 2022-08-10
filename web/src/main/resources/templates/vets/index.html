@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}, 'vet')}">
+	<head>
+		<title>PetClinic - Vet Index Page</title>
+	</head>
+	<body>
+		<h1 th:text="'Vet Index Page'">Heading One</h1>
+
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th style="width: 140px;">Id</th>
+					<th style="width: 140px;">FirstName</th>
+					<th style="width: 140px;">LastName</th>
+					</tr>
+			</thead>
+			<tbody>
+				<tr th:each="vet:${vets}">
+					<td th:text="${vet.id}">1</td>
+					<td th:text="${vet.firstName}">g</td>
+					<td th:text="${vet.lastName}">j</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
