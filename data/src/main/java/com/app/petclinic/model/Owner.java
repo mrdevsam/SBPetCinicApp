@@ -1,10 +1,10 @@
 package com.app.petclinic.model;
 
-import java.util.Set;
+import java.util.*;
 
 public class Owner extends Person{
     private String address, city, telephone;
-    private Set<Pet> pets;
+    private Set<Pet> pets = new HashSet<>();
 
     
     public String getAddress() {
