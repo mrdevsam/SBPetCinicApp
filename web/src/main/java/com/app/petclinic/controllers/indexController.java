@@ -10,4 +10,9 @@ public class indexController {
     public String index() {
         return "index.html";
     }
+
+    @RequestMapping("oups")
+    public String oupsHndler() {
+        return "oupsPage.html";
+    }
 }
