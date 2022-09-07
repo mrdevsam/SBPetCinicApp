@@ -13,7 +13,7 @@ import com.app.petclinic.repositories.PetTypeRepository;
 import com.app.petclinic.services.OwnerService;
 
 @Service
-@Profile("sbJpaOwner")
+@Profile("SpringData")
 public class OwnerSbJpaService implements OwnerService{
 
     private final OwnerRepository ownerRepository;
