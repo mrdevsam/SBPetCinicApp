@@ -10,8 +10,10 @@ import com.app.petclinic.model.Pet;
 import com.app.petclinic.model.PetType;
 import com.app.petclinic.model.Speciality;
 import com.app.petclinic.model.Vet;
+import com.app.petclinic.model.Visit;
 import com.app.petclinic.services.OwnerService;
 import com.app.petclinic.services.VetService;
+import com.app.petclinic.services.VisitService;
 import com.app.petclinic.services.PetTypeService;
 import com.app.petclinic.services.SpecialityService;
 
@@ -23,13 +25,15 @@ public class DataLoader implements CommandLineRunner{
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
     
     public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
-            SpecialityService specialityService) {
+            SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
 
@@ -99,6 +103,13 @@ public class DataLoader implements CommandLineRunner{
         owner2.getPets().add(bSpet);
         ownerService.save(owner2);
 
+        Visit catVisit = new Visit();
+        catVisit.setPet(bSpet);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Snezzy cat");
+
+        visitService.save(catVisit);
+        
         System.out.println("Owners loaded...");
 
         Vet vet1 = new Vet();
