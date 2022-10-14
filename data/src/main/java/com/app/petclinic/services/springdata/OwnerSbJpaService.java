@@ -1,6 +1,7 @@
 package com.app.petclinic.services.springdata;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.context.annotation.Profile;
@@ -57,6 +58,11 @@ public class OwnerSbJpaService implements OwnerService{
     @Override
     public Owner save(Owner object) {
         return ownerRepository.save(object);
+    }
+
+    @Override
+    public List<Owner> findAllByLastNameLike(String lastName) {
+        return ownerRepository.findAllByLastNameLike(lastName);
     }
     
 }
