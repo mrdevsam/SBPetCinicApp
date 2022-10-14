@@ -1,10 +1,11 @@
 package com.app.petclinic.controllers;
 
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -43,10 +44,10 @@ public class ownerControllerTest {
     }
 
     @Test
-    void testOwFind()  throws Exception{
+    void testOwFind() throws Exception {
         mockMvc.perform(get("/owners/find"))
-        .andExpect(status().isOk())
-        .andExpect(view().name("notImplemented.html"));
+                .andExpect(status().isOk())
+                .andExpect(view().name("notImplemented.html"));
 
         verifyNoInteractions(oService);
     }
@@ -70,4 +71,15 @@ public class ownerControllerTest {
         .andExpect(view().name("owners/index.html"))
         .andExpect(model().attribute("owners", hasSize(2)));
     }
+
+    @Test
+    void testDisplayOwner() throws Exception{
+        when(oService.findById(anyLong())).thenReturn(Owner.builder().id(1L).build());
+
+        mockMvc.perform(get("/owners/123"))
+        .andExpect(status().isOk())
+        .andExpect(view().name("owners/ownerDetails"))
+        .andExpect(model().attribute("owner", hasProperty("id", is(1L))));
+    }
+
 }
