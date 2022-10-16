@@ -70,8 +70,8 @@ public class DataLoader implements CommandLineRunner{
         Speciality savedDnts = specialityService.save(dentistry);
         
         Owner owner1 = new Owner();
-        owner1.setFirstName("Mr");
-        owner1.setLastName("A");
+        owner1.setFirstName("Harry");
+        owner1.setLastName("Potter");
 
         owner1.setAddress("Wwwwwwwwwww");
         owner1.setCity("eeee");
@@ -87,8 +87,8 @@ public class DataLoader implements CommandLineRunner{
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
-        owner2.setFirstName("Mr");
-        owner2.setLastName("B");
+        owner2.setFirstName("Lucious");
+        owner2.setLastName("Malfoy");
 
         owner2.setAddress("Wwwwwwwwwww");
         owner2.setCity("eeee");
