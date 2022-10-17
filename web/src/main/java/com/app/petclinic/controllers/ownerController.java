@@ -20,7 +20,7 @@ import org.springframework.validation.annotation.Validated;
 @Controller
 public class ownerController {
     
-    private static String VIEWS_OWNER_CREATE_UPDATE_FORM = "owners/createOrUpdateOwnerForm";
+    private static final String VIEWS_OWNER_CREATE_UPDATE_FORM = "owners/createOrUpdateOwnerForm";
     private final OwnerService ownerService;
     
     public ownerController(OwnerService ownerService) {
