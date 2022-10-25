@@ -1,5 +1,6 @@
 package com.app.petclinic.controllers;
 
+import java.time.LocalDate;
 import java.util.Collection;
 
 import org.springframework.stereotype.Controller;
@@ -57,6 +58,7 @@ public class PetController {
     public String initPetCreationForm(Owner owner, Model model) {
         Pet pet = new Pet();
         owner.getPets().add(pet);
+        pet.setOwner(owner);
         model.addAttribute("pet", pet);
         return VIEWS_CREARE_UPDATE_PET_FORM;
     }
@@ -67,6 +69,8 @@ public class PetController {
             result.rejectValue("name", "duplicate", "already exists");
         }
 
+        pet.setOwner(owner);
+        //pet.setBirthDate(LocalDate.now());
         owner.getPets().add(pet);
 
         if (result.hasErrors()) {
@@ -92,7 +96,9 @@ public class PetController {
             model.addAttribute("pet", pet);
             return VIEWS_CREARE_UPDATE_PET_FORM;
         } else {
-            owner.getPets().add(pet);
+            //owner.getPets().add(pet);
+            pet.setOwner(owner);
+            //pet.setBirthDate(LocalDate.now());
             petService.save(pet);
             return "redirect:/owners/" + owner.getId();
         }

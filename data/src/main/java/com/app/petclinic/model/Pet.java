@@ -3,6 +3,9 @@ package com.app.petclinic.model;
 import java.time.LocalDate;
 import java.util.*;
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.*;
 
 @Getter
