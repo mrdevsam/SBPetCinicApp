@@ -3,9 +3,6 @@ package com.app.petclinic.model;
 import java.time.LocalDate;
 import java.util.*;
 import javax.persistence.*;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 import lombok.*;
 
 @Getter
@@ -23,7 +20,10 @@ public class Pet extends BaseEntity{
         this.petType = petType;
         this.owner = owner;
         this.birthDate = birthDate;
-        this.visits = visits;
+        
+        if (visits == null || visits.size() > 0) {
+            this.visits = visits;
+        }
     }
 
     @Column(name = "name")
