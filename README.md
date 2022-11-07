@@ -1,4 +1,4 @@
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/mrmadwolf/SBPetCinicApp/tree/master.svg?style=svg&circle-token=0783aeb0189e7df3c8bf26af22e053f986a3cc65)](https://dl.circleci.com/status-badge/redirect/gh/mrmadwolf/SBPetCinicApp/tree/master)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/mrdevsam/SBPetCinicApp/tree/master.svg?style=svg&circle-token=94b1120221d0a91cba1a1532a3c04ad0f70d8329)](https://dl.circleci.com/status-badge/redirect/gh/mrdevsam/SBPetCinicApp/tree/master)
 
 # Spring Boot Petclinic Application
 
