@@ -5,6 +5,8 @@ import com.app.petclinic.services.OwnerService;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 
 @Controller
 public class ownerController {
@@ -77,7 +78,7 @@ public class ownerController {
     }
 
     @PostMapping("/owners/new")
-    public String processOwnerCreationForm(@Validated Owner owner, BindingResult result) {
+    public String processOwnerCreationForm(@Valid Owner owner, BindingResult result) {
         if (result.hasErrors()) {
             return VIEWS_OWNER_CREATE_UPDATE_FORM;
         } else {
@@ -93,7 +94,7 @@ public class ownerController {
     }
 
     @PostMapping("/owners/{ownerId}/edit")
-    public String processOwnerUpdateForm(@Validated Owner owner, BindingResult result, @PathVariable Long ownerId) {
+    public String processOwnerUpdateForm(@Valid Owner owner, BindingResult result, @PathVariable Long ownerId) {
         if (result.hasErrors()) {
             return VIEWS_OWNER_CREATE_UPDATE_FORM;
         } else {

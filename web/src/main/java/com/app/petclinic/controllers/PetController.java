@@ -1,14 +1,14 @@
 package com.app.petclinic.controllers;
 
-import java.time.LocalDate;
 import java.util.Collection;
+
+import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -64,7 +64,7 @@ public class PetController {
     }
 
     @PostMapping("/pets/new")
-    public String proccessPetCreationForm(Owner owner, @Validated Pet pet, BindingResult result, ModelMap model) {
+    public String proccessPetCreationForm(Owner owner, @Valid Pet pet, BindingResult result, ModelMap model) {
         if (StringUtils.hasLength(pet.getName()) && pet.isNew() && owner.getPet(pet.getName(), false) != null) {
             result.rejectValue("name", "duplicate", "already exists");
         }
@@ -90,7 +90,7 @@ public class PetController {
     }
 
     @PostMapping("/pets/{petId}/edit")
-    public String processPetUpdateForm(@Validated Pet pet, BindingResult result, Owner owner, Model model) {
+    public String processPetUpdateForm(@Valid Pet pet, BindingResult result, Owner owner, Model model) {
         if (result.hasErrors()) {
             pet.setOwner(owner);
             model.addAttribute("pet", pet);
