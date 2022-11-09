@@ -41,7 +41,7 @@ public class Pet extends BaseEntity{
     private Owner owner;
 
 
-    @DateTimeFormat(pattern = "MM-dd-yyyy")
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
