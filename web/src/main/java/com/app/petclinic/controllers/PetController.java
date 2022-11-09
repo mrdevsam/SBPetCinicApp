@@ -70,7 +70,6 @@ public class PetController {
         }
 
         pet.setOwner(owner);
-        //pet.setBirthDate(LocalDate.now());
         owner.getPets().add(pet);
 
         if (result.hasErrors()) {
@@ -96,9 +95,7 @@ public class PetController {
             model.addAttribute("pet", pet);
             return VIEWS_CREARE_UPDATE_PET_FORM;
         } else {
-            //owner.getPets().add(pet);
             pet.setOwner(owner);
-            //pet.setBirthDate(LocalDate.now());
             petService.save(pet);
             return "redirect:/owners/" + owner.getId();
         }

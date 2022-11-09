@@ -3,6 +3,9 @@ package com.app.petclinic.model;
 import java.time.LocalDate;
 import java.util.*;
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.*;
 
 @Getter
@@ -37,6 +40,8 @@ public class Pet extends BaseEntity{
     @JoinColumn(name = "pet_id")
     private Owner owner;
 
+
+    @DateTimeFormat(pattern = "MM-dd-yyyy")
     @Column(name = "birth_date")
     private LocalDate birthDate;
 

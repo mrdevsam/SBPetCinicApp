@@ -1,6 +1,6 @@
 package com.app.petclinic.bootstrap;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -79,7 +79,7 @@ public class DataLoader implements CommandLineRunner{
 
         Pet aSpet = new Pet();
         aSpet.setName("AAAAA");
-        aSpet.setBirthDate(LocalDate.now());
+        //aSpet.setBirthDate(new Date().);
         aSpet.setOwner(owner1);
         aSpet.setPetType(savedDogPetType);
 
@@ -96,7 +96,7 @@ public class DataLoader implements CommandLineRunner{
 
         Pet bSpet = new Pet();
         bSpet.setName("BBBBB");
-        bSpet.setBirthDate(LocalDate.now());
+        //bSpet.setBirthDate(LocalDate.now());
         bSpet.setOwner(owner2);
         bSpet.setPetType(savedCatPetType);
 
@@ -105,7 +105,7 @@ public class DataLoader implements CommandLineRunner{
 
         Visit catVisit = new Visit();
         catVisit.setPet(bSpet);
-        catVisit.setDate(LocalDate.now());
+        //catVisit.setDate(LocalDate.now());
         catVisit.setDescription("Snezzy cat");
 
         visitService.save(catVisit);
