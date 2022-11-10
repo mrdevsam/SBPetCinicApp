@@ -1,7 +1,5 @@
 package com.app.petclinic.bootstrap;
 
-import java.util.Date;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
